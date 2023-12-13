@@ -1,0 +1,11 @@
+body{
+    background: #ccc;   
+}
+
+header{
+    margin-bottom: 20px;
+}
+header svg{
+    margin-right:10px;
+}
+
