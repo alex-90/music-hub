@@ -17,7 +17,7 @@ Admin page
 
 <h2>Files list</h2>
 
-<a class="btn btn-primary" href="{{ route('upload') }}" role="button">Upload File</a>
+<a class="btn btn-primary mb-2" href="{{ route('upload') }}" role="button">Upload File</a>
 
 
 @include('inc.gridview', ['files' => $files])

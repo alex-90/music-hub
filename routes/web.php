@@ -23,14 +23,13 @@ use App\Http\Controllers\AlbumController;
 */
 
 Route::get('/', [SiteController::class, 'index'])->name('home');
-Route::get('my', [SiteController::class, 'index'])->name('my');
-
-Route::get('files', [FileController::class, 'index'])->name('list');
 
 Route::middleware(['isNotGuest'])->group(function () {
 
+    Route::get('my', [SiteController::class, 'my'])->name('my');
+
     Route::middleware(['isAdmin'])->group(function () {
-        
+
         Route::get('admin', [AdminController::class, 'index'])->name('admin');
 
         Route::get('upload-file', [AdminController::class, 'upload'])->name('upload');

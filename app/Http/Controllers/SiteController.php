@@ -19,6 +19,13 @@ class SiteController extends Controller
         return view('index', ['files' => $files]);
     }
 
+    public function my()
+    {
+        $files = File::latest()->take(10)->get();;
+
+        return view('index', ['files' => $files]);
+    }
+
 
     public function download($hash)
     {

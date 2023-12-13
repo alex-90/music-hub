@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title')</title>
     
-
     @vite([
         'resources/css/bootstrap.min.css',
 
@@ -19,15 +18,18 @@
 </head>
 <body>
 
-@include('inc.header')
 
-<div class="container">
+
+<div class="container mt-3">
     <div class="row">
 
         @if (Request::is('/'))
             @include('inc.hero')
         @endif
 
+        @if (Request::is('my'))
+            @include('inc.hero')
+        @endif
 
         <div class="col-3">
         @include('inc.my-left-panel')
@@ -40,10 +42,7 @@
     </div>
 </div>
 
-
 @include('inc.footer')
-    
-      
    
 </body>
 </html>
