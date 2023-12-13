@@ -23,19 +23,24 @@ use App\Http\Controllers\AlbumController;
 */
 
 Route::get('/', [SiteController::class, 'index'])->name('home');
-Route::get('/my', [SiteController::class, 'index'])->name('my');
+Route::get('my', [SiteController::class, 'index'])->name('my');
 
-Route::get('/files', [FileController::class, 'index'])->name('list');
+Route::get('files', [FileController::class, 'index'])->name('list');
 
 Route::middleware(['isNotGuest'])->group(function () {
-    Route::get('admin', [AdminController::class, 'index'])->name('admin');
-    Route::get('upload-file', [AdminController::class, 'upload'])->name('upload');
-    Route::post('upload-file', [AdminController::class, 'uploadFile'])->name('upload-file');
-    Route::get('delete-file/{id}', [AdminController::class, 'deleteFile'])->name('delete-file');
 
-    Route::resource('author', AuthorController::class);
-    Route::resource('category', CategoryController::class);
-    Route::resource('album', AlbumController::class);
+    Route::middleware(['isAdmin'])->group(function () {
+        
+        Route::get('admin', [AdminController::class, 'index'])->name('admin');
+
+        Route::get('upload-file', [AdminController::class, 'upload'])->name('upload');
+        Route::post('upload-file', [AdminController::class, 'uploadFile'])->name('upload-file');
+        Route::get('delete-file/{id}', [AdminController::class, 'deleteFile'])->name('delete-file');
+    
+        Route::resource('author', AuthorController::class);
+        Route::resource('category', CategoryController::class);
+        Route::resource('album', AlbumController::class);
+    });
 
     Route::get('t', [AdminController::class, 'test']);
 });

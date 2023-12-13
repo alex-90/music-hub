@@ -30,8 +30,8 @@
   
   <td>{{$row->size}}</td>
   <td>{{$row->time}}</td>
-  <td>{{$row->album_id ? $row->album->id : 'aaa'}}</td>
-  <td>{{$row->author_id ? $row->author->name : 'unknown'}}</td>
+  <td>{{$row->album->name ?? ''}}</td>
+  <td>{{$row->author->name ?? 'unknown'}}</td>
 
   <td>{{$row->created_at}}</td>
   <td>{{$row->updated_at}}</td>
