@@ -12,7 +12,7 @@
 </head>
 <body>
 
-@include('inc.header')
+
 
 <div class="container text-center">
     <div class="row">

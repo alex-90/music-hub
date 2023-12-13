@@ -32,7 +32,9 @@
         @endif
 
         <div class="col-3">
-        @include('inc.my-left-panel')
+        @if (Auth::check())
+            @include('inc.my-left-panel')
+        @endif
         </div>
         
         <div class="col-9">
